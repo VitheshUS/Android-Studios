@@ -1,0 +1,12 @@
+package com.example.api_tutorial;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+
+public interface API_interface {
+
+@GET
+    Call<ArrayList<pojo>> getalldata();        //here pojo is the that getter and setter class
+}
