@@ -1,0 +1,26 @@
+private String getcityname(double lon,double lat)
+    {
+        String cityname="Not found";
+        Geocoder gcd=new Geocoder(getBaseContext(), Locale.getDefault());
+        try{
+            List<Address>address=gcd.getFromLocation(lon,lat,10);
+
+            for(Address a:address)
+            {
+                if(a!=null){
+                    String city=a.getLocality();
+                    if(city!=null && !city.equals("")){
+                        cityname=city;
+                    }
+                    else{
+                        Toast.makeText(this, "city not found", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+return cityname;
+    }
